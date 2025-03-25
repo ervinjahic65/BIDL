@@ -62,6 +62,9 @@
     color: black;
     opacity: 1; /* Firefox */
   }
+  .keen-slider {
+    overflow: visible !important;
+  }
  .go2933276541{
     position:fixed;
     display:block;
@@ -1943,6 +1946,13 @@ button.cky-accordion-btn:not(:hover):not(:active),button.cky-banner-btn-close:no
     }
     .cky-rtl .cky-accordion.cky-accordion-active .cky-accordion-body{
         padding: 0 22px 0 0;
+    }
+    .keen-slider__slide {
+        min-width: 400px !important;
+        max-width: 400px !important;
+    }
+    .TestimonialSlider_testimonialSlider__header__controls__MYIvF {
+        display:  block !important;
     }
 }
 @media (max-width: 425px){

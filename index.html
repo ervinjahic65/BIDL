@@ -636,6 +636,56 @@
               }, 2000);
           });
         </script>
-        
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.keen-slider');
+            const slides = document.querySelectorAll('.keen-slider__slide');
+            const leftButton = document.querySelector('.arrow-left').parentElement;
+            const rightButton = document.querySelector('.arrow-right').parentElement;
+
+            let currentIndex = 0;
+            const slideWidth = slides[0].offsetWidth; // Get the width of the first slide
+
+            function updateSlider() {
+              slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }
+
+            function updateButtons() {
+              leftButton.disabled = currentIndex === 0;
+              rightButton.disabled = currentIndex === slides.length - 1;
+            }
+
+            function nextSlide() {
+              if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                updateSlider();
+                updateButtons();
+              }
+            }
+
+            function prevSlide() {
+              if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+                updateButtons();
+              }
+            }
+
+            rightButton.addEventListener('click', nextSlide);
+            leftButton.addEventListener('click', prevSlide);
+
+            // Initial setup
+            updateSlider();
+            updateButtons();
+
+            // Handle window resize to adjust slideWidth
+            function handleResize() {
+              slideWidth = slides[0].offsetWidth;
+              updateSlider();
+            }
+
+            window.addEventListener('resize', handleResize);
+          });
+        </script>
     </body>
 </html>
