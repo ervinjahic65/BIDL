@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctenos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="files/logo.png" sizes="16x16">
+</head>
+<body class="font-sans bg-gray-100 text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Sección de Encabezado -->
+    <header class="bg-white shadow-md p-4">
+        <div class="flex items-center ml-16">
+            <a href="index.html" class="flex items-center">
+                <img src="files/logo.png" alt="Logo" class="h-10">
+            </a>
+        </div>
+    </header>    
+
+    <!-- Sección Principal -->
+    <main class="max-w-7xl mx-auto p-6 flex-grow">
+        <h1 class="text-3xl font-bold mb-4">Contáctenos</h1>
+        
+        <p class="mb-6">
+            Si tiene alguna pregunta, comentario o sugerencia, no dude en contactarnos utilizando el siguiente formulario. ¡Esperamos saber de usted!
+        </p>
+
+        <form id="form" class="space-y-6">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                <input type="text" id="name" name="name" required class="mt-1 p-3 border border-gray-300 rounded-md w-full" placeholder="Ingrese su nombre completo">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required class="mt-1 p-3 border border-gray-300 rounded-md w-full" placeholder="Ingrese su dirección de correo electrónico">
+            </div>
+
+            <div>
+                <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                <textarea id="message" name="message" required rows="6" class="mt-1 p-3 border border-gray-300 rounded-md w-full" placeholder="Ingrese su mensaje"></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700">Enviar</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Sección de Pie de Página -->
+    <footer class="bg-white shadow-md p-4 mt-auto">
+        <div class="flex flex-col items-center text-center">
+            <a href="index.html" class="flex items-center mb-4">
+                <img src="files/logo.png" alt="Logo" class="h-10">
+            </a>
+            <p class="text-sm text-gray-600">&copy; 2025 Easy Tech Solution</p>
+            <div class="flex flex-col space-y-2 mt-2">
+                <a href="terms.html" class="text-blue-600 hover:text-blue-800">Términos y Condiciones</a>
+                <a href="privacy.html" class="text-blue-600 hover:text-blue-800">Política de Privacidad</a>
+                <a href="about.html" class="text-blue-600 hover:text-blue-800">Acerca de Nosotros</a>
+                <a href="contact.html" class="text-blue-600 hover:text-blue-800">Contáctenos</a>
+            </div>
+            <br>
+            <p style="font-size: 13px; text-align: center;">
+                CNPJ: 78.989.613/0001-90 <br>
+                Inscrição Estadual: 8324829-77 <br>
+                Endereço: 974 Rua Itaguaí, Mangabeira, Feira de Santana, 44056-516 <br>
+                Número de telefone: (75) 2871-8215 <br>
+            </p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+      
+            document.getElementById("form").innerHTML = '<img src="files/loading.gif" style="" width="80">';
+      
+            setTimeout(() => {
+                document.getElementById("form").innerHTML = '<p style="font-size: 14px; color:black; font-weight: 700;">Gracias por registrarse. Un representante se pondrá en contacto con usted en breve.</p>';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
