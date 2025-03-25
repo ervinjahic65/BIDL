@@ -687,5 +687,57 @@
             window.addEventListener('resize', handleResize);
           });
         </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const accordionItems = document.querySelectorAll('[data-accordion-component="AccordionItem"]');
+
+            accordionItems.forEach(item => {
+              const header = item.querySelector('[data-accordion-component="AccordionItemHeading"]');
+              const button = item.querySelector('[data-accordion-component="AccordionItemButton"]');
+              const panel = item.querySelector('[data-accordion-component="AccordionItemPanel"]');
+
+              if (header && button && panel) {
+                header.addEventListener('click', () => {
+                  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                  // Close all other open items
+                  accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                      const otherButton = otherItem.querySelector('[data-accordion-component="AccordionItemButton"]');
+                      const otherPanel = otherItem.querySelector('[data-accordion-component="AccordionItemPanel"]');
+                      const otherWrapper = otherItem.querySelector('.TextAccordionItem_accordionItemStateExpanded__ShacR') || otherItem.querySelector('.TextAccordionItem_accordionItemState__ZGKFb');
+
+                      if (otherButton && otherPanel) {
+                        otherButton.setAttribute('aria-expanded', 'false');
+                        otherPanel.setAttribute('hidden', '');
+                        if (otherWrapper) {
+                          otherWrapper.classList.remove('TextAccordionItem_accordionItemStateExpanded__ShacR');
+                          otherWrapper.classList.add('TextAccordionItem_accordionItemState__ZGKFb');
+                        }
+                      }
+                    }
+                  });
+
+                  // Toggle the current item
+                  button.setAttribute('aria-expanded', !isExpanded);
+                  panel.toggleAttribute('hidden');
+                  const wrapper = item.querySelector('.TextAccordionItem_accordionItemStateExpanded__ShacR') || item.querySelector('.TextAccordionItem_accordionItemState__ZGKFb');
+                  if (wrapper) {
+                    wrapper.classList.toggle('TextAccordionItem_accordionItemStateExpanded__ShacR');
+                    wrapper.classList.toggle('TextAccordionItem_accordionItemState__ZGKFb');
+                  }
+                });
+
+                // Handle keyboard navigation for accessibility
+                header.addEventListener('keydown', (event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    header.click();
+                  }
+                });
+              }
+            });
+          });
+        </script>
     </body>
 </html>
