@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문의하기</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="files/logo.png" sizes="16x16">
+</head>
+<body class="font-sans bg-gray-100 text-gray-900 flex flex-col min-h-screen">
+
+  <!-- 헤더 섹션 -->
+  <header class="bg-white shadow-md p-4">
+    <div class="flex items-center ml-16">
+      <a href="index.html" class="flex items-center">
+        <img src="files/logo.png" alt="Logo" class="h-10">
+      </a>
+    </div>
+  </header>    
+
+  <!-- 본문 섹션 -->
+  <main class="max-w-7xl mx-auto p-6 flex-grow">
+    <h1 class="text-3xl font-bold mb-4">문의하기</h1>
+    
+    <p class="mb-6">
+      질문, 의견 또는 피드백이 있으시면 아래 양식을 통해 문의해 주세요. 귀하의 소식을 기다리고 있습니다!
+    </p>
+
+    <form id="form" class="space-y-6">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">성명</label>
+        <input type="text" id="name" name="name" required class="mt-1 p-3 border border-gray-300 rounded-md w-full" placeholder="성명을 입력하세요">
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">이메일 주소</label>
+        <input type="email" id="email" name="email" required class="mt-1 p-3 border border-gray-300 rounded-md w-full" placeholder="이메일 주소를 입력하세요">
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm font-medium text-gray-700">메시지</label>
+        <textarea id="message" name="message" required rows="6" class="mt-1 p-3 border border-gray-300 rounded-md w-full" placeholder="메시지를 입력하세요"></textarea>
+      </div>
+
+      <div>
+        <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700">제출하기</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- 푸터 섹션 -->
+  <footer class="bg-white shadow-md p-4 mt-auto">
+    <div class="flex flex-col items-center text-center">
+      <a href="index.html" class="flex items-center mb-4">
+        <img src="files/logo.png" alt="Logo" class="h-10">
+      </a>
+      <p class="text-sm text-gray-600">&copy; 2025 Easy Tech Solution</p>
+      <div class="flex flex-col space-y-2 mt-2">
+        <a href="terms.html" class="text-blue-600 hover:text-blue-800">이용 약관</a>
+        <a href="privacy.html" class="text-blue-600 hover:text-blue-800">개인정보처리방침</a>
+        <a href="about.html" class="text-blue-600 hover:text-blue-800">회사 소개</a>
+        <a href="contact.html" class="text-blue-600 hover:text-blue-800">문의하기</a>
+      </div>
+      <br>
+      <p style="font-size: 13px; text-align: center;">
+        주소: 서울특별시 중구 서소문동 21-1 <br>
+        전화: +34 986 227 374 <br>
+        법인 등록 번호: 4010501096087 <br>
+      </p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      
+      document.getElementById("form").innerHTML = '<img src="files/loading.gif" style="" width="80">';
+      
+      setTimeout(() => {
+        document.getElementById("form").innerHTML = '<p style="font-size: 14px; color:black; font-weight: 700;">등록해 주셔서 감사합니다. 담당자가 곧 연락드리겠습니다.</p>';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
